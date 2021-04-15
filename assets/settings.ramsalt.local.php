@@ -1,6 +1,4 @@
 <?php
-// Good idea is to include the Production config and override what's needed.
-require_once __DIR__ . '/settings.ramsalt.prod.php';
 
 $your_email = 'your_username@ramsalt.com';
 
