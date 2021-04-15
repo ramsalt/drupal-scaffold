@@ -1,5 +1,5 @@
 # For more info about Post deployment scripts in Wodby see:
-# https://docs.wodby.com/deployment/post-deployment-scripts.html
+# https://wodby.com/docs/1.0/apps/post-deployment-scripts/
 pipeline:
   # Automatically handles drush cr, updb, cim, ...
   - name: Drush Deploy
