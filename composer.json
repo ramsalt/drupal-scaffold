@@ -11,7 +11,16 @@
     "extra": {
         "drupal-scaffold": {
             "file-mapping": {
-                "[project-root]/wodby.yml": "assets/wodby.yml",
+                "[project-root]/wodby.yml": {
+                    "mode": "replace",
+                    "path": "assets/wodby.yml",
+                    "overwrite": false
+                },
+                "[project-root]/.circleci/config.yml": {
+                    "mode": "replace",
+                    "path": "assets/circleci.config.yml",
+                    "overwrite": false
+                },
                 "[project-root]/.gitignore": {
                     "force-append": "assets/gitignore-additions"
                 },
