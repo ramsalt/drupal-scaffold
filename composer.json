@@ -13,7 +13,7 @@
             "file-mapping": {
                 "[project-root]/wodby.yml": "assets/wodby.yml",
                 "[project-root]/.gitignore": {
-                    "append": "assets/gitignore-additions"
+                    "force-append": "assets/gitignore-additions"
                 },
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
