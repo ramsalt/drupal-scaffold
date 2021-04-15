@@ -22,7 +22,8 @@
                     "overwrite": false
                 },
                 "[project-root]/.gitignore": {
-                    "force-append": "assets/gitignore-additions"
+                    "append": "assets/gitignore-additions",
+                    "force-append": true
                 },
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
