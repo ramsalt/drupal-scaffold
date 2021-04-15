@@ -40,7 +40,7 @@
                     "path": "assets/settings.ramsalt.local.php",
                     "overwrite": false
                 },
-                "[web-root]/sites/default/settings.ramsalt.pod.php": {
+                "[web-root]/sites/default/settings.ramsalt.prod.php": {
                     "mode": "replace",
                     "path": "assets/settings.ramsalt.prod.php",
                     "overwrite": false
