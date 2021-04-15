@@ -50,7 +50,7 @@ $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml'
 $config['system.site']['mail'] = $your_email;
 
 // Configure mail modules to not send out mails in local environments.
-// if ($is_docker) {
+// if ($is_docker4drupal) {
 $config['smtp.settings']['smtp_port'] = '1025';
 $config['smtp.settings']['smtp_host'] = 'mailhog';
 $config['smtp.settings']['smtp_from'] = $your_email;
@@ -104,6 +104,7 @@ $default_db_password  = 'drupal';
 // Use .env database credential format if provided.
 if (empty($db_user) && !empty($_ENV['MYSQL_DATABASE'])) {
   $db_user = $_ENV['MYSQL_DATABASE'];
+}
 
 if (empty($db_password) && !empty($_ENV['MYSQL_PASSWORD'])) {
   $db_password = $_ENV['MYSQL_PASSWORD'];
