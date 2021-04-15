@@ -1,0 +1,51 @@
+{
+    "name": "ramsalt/drupal-scaffold",
+    "description": "Add this package to any Drupal distribution based on drupal/core-composer-scaffold to enable it for use at Ramsalt.",
+    "authors": [
+        {
+            "name": "Stephan Zeidler",
+            "email": "stephan@ramsalt.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[project-root]/wodby.yml": "assets/wodby.yml",
+                "[project-root]/.gitignore": {
+                    "append": "assets/gitignore-additions"
+                },
+                "[web-root]/sites/default/settings.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/development.services.yml": {
+                    "mode": "replace",
+                    "path": "assets/development.services.yml",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/settings.ramsalt.local.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.ramsalt.local.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/settings.ramsalt.dev.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.ramsalt.dev.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/settings.ramsalt.stage.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.ramsalt.stage.php",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/settings.ramsalt.pod.php": {
+                    "mode": "replace",
+                    "path": "assets/settings.ramsalt.prod.php",
+                    "overwrite": false
+                }
+            }
+        }
+    }
+}

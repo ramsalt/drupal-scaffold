@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  ramsalt-ci: ramsalt/ci@volatile
+
+workflows:
+  version: 2
+  wodby-deploy:
+    jobs:
+      -
+        ramsalt-ci/wodby-deploy-simple:
+          name: "Deploy: INSERT NAME HERE instance"
+          context: [wodby-api, private-packagist]
+          wodby_instance_uuid: '......'
+#        filters:
+#          branches: { only: [ 'develop' ] }

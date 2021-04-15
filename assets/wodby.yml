@@ -1,0 +1,23 @@
+# For more info about Post deployment scripts in Wodby see:
+# https://docs.wodby.com/deployment/post-deployment-scripts.html
+pipeline:
+  - name: Drush deploy (updb, cr, cim, cr)
+    type: command
+    command: drush deploy
+    directory: $WODBY_APP_ROOT
+    only_if: '[ ! -z "$(drush st --fields=bootstrap)" ]'
+
+  - name: Set Admin mail to webmaster, for consistent pass reset.
+    type: command
+    # TODO Remember this: https://www.drupal.org/project/drupal/issues/540008
+    command: drush sqlq 'UPDATE users_field_data SET name="Ramsalt Lab", mail="webmaster@ramsalt.com" WHERE uid = 1 LIMIT 1;'
+    directory: $WODBY_APP_DOCROOT
+    # Only run in Production
+    only_if: '[ ! -z "$(drush st --fields=bootstrap)" ] && [ "$WODBY_ENVIRONMENT_TYPE" = "prod" ]'
+
+  - name: Disable login for '*@ramsalt.com' accounts.
+    type: command
+    command: drush sqlq "UPDATE users_field_data SET pass='#' WHERE mail LIKE '%@ramsalt.com';"
+    directory: $WODBY_APP_DOCROOT
+    # Only run in Production
+    only_if: '[ ! -z "$(drush st --fields=bootstrap)" ] && [ "$WODBY_ENVIRONMENT_TYPE" = "prod" ]'
