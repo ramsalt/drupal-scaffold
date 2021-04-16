@@ -33,6 +33,7 @@ $real_host_directory = 'default';
 // if your online host (in this config: $real_host) has an http authentication authentication set here the info using
 // the format: username:password.
 // $real_host_access = 'username:password';
+$real_host_use_https = TRUE;
 
 /*****************************************************************/
 /**                                                             **/
@@ -84,9 +85,9 @@ $settings['skip_permissions_hardening'] = TRUE;
 if ($real_host) {
   $real_host_directory = isset($real_host_directory) ? $real_host_directory : $real_host;
   if (isset($real_host_access) )
-    $config['stage_file_proxy.settings']['origin'] = 'http://'.$real_host_access.'@'.$real_host;
+    $config['stage_file_proxy.settings']['origin'] = ($real_host_use_https ? 'https://' : 'http://').$real_host_access.'@'.$real_host;
   else
-    $config['stage_file_proxy.settings']['origin'] = 'http://'.$real_host;
+    $config['stage_file_proxy.settings']['origin'] = ($real_host_use_https ? 'https://' : 'http://').$real_host;
 
   $config['stage_file_proxy.settings']['hotlink'] = FALSE;
   $config['stage_file_proxy.settings']['origin_dir'] = 'sites/'.$real_host_directory.'/files';
