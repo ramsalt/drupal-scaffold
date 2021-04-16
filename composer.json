@@ -35,16 +35,12 @@
                     "path": "assets/development.services.yml",
                     "overwrite": false
                 },
-                "[web-root]/sites/default/settings.ramsalt.local.php": {
-                    "mode": "replace",
-                    "path": "assets/settings.ramsalt.local.php",
-                    "overwrite": false
-                },
                 "[web-root]/sites/default/settings.ramsalt.prod.php": {
                     "mode": "replace",
                     "path": "assets/settings.ramsalt.prod.php",
                     "overwrite": false
-                }
+                },
+                "[web-root]/sites/default/settings.ramsalt.local.php.example":  "assets/settings.ramsalt.local.php"
             }
         }
     }
