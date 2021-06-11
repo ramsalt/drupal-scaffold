@@ -101,8 +101,8 @@ $default_db_user      = 'drupal';
 $default_db_password  = 'drupal';
 
 // Use .env database credential format if provided.
-if (empty($db_user) && !empty($_ENV['MYSQL_DATABASE'])) {
-  $db_user = $_ENV['MYSQL_DATABASE'];
+if (empty($db_user) && !empty($_ENV['MYSQL_USER'])) {
+  $db_user = $_ENV['MYSQL_USER'];
 }
 
 if (empty($db_password) && !empty($_ENV['MYSQL_PASSWORD'])) {
