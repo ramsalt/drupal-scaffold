@@ -17,6 +17,9 @@ $db_password  = 'drupal';
 $config['system.performance']['css']['preprocess'] = FALSE;
 $config['system.performance']['js']['preprocess'] = FALSE;
 
+// Disable AdvAgg
+$config['advagg.settings']['enabled'] = FALSE;
+
 $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
