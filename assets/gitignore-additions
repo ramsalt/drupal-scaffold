@@ -14,3 +14,7 @@ node_modules/
 /web/sites/development.services.yml
 /docker-runtime/
 
+# macOS
+.DS_Store
+
+
