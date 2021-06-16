@@ -20,6 +20,9 @@ $config['system.performance']['js']['preprocess'] = FALSE;
 $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
+// Assume `dev` as naming convention, including the dev configurations for local as well
+$config['config_split.config_split.dev']['status'] = TRUE;
+
 // A default value for non-docker users' private files path.
 if (!$is_docker4drupal) {
   $settings['file_private_path'] = 'sites/default/files/private';
