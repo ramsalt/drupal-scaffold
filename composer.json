@@ -11,11 +11,7 @@
     "extra": {
         "drupal-scaffold": {
             "file-mapping": {
-                "[project-root]/wodby.yml": {
-                    "mode": "replace",
-                    "path": "assets/wodby.yml",
-                    "overwrite": false
-                },
+                "[project-root]/wodby.yml": "assets/wodby.yml",
                 "[project-root]/.circleci/config.yml": {
                     "mode": "replace",
                     "path": "assets/circleci.config.yml",
