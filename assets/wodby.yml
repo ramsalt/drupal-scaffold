@@ -16,3 +16,8 @@ pipeline:
       drush sqlq "UPDATE users_field_data SET pass='#' WHERE mail LIKE '%@ramsalt.com';"
     directory: $WODBY_APP_DOCROOT
     only_if: '[ "$WODBY_ENVIRONMENT_TYPE" = "prod" ] && [ -n "$(drush st --fields=bootstrap)" ]'
+
+  - name: Update localizations
+    type: command
+    command: drush locale:check && drush locale:update
+    directory: $WODBY_APP_DOCROOT
