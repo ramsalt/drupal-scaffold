@@ -14,3 +14,8 @@ node_modules/
 /web/sites/development.services.yml
 /docker-runtime/
 
+# Ignore the default wodby.yml file.
+#
+# You should remove this if you want to make any changes to it.
+# Also remember to update the "drupal-scaffold.file-mapping" options for this file.
+/wodby.yml
