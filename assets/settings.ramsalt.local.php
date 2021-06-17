@@ -104,21 +104,21 @@ $default_db_user      = 'drupal';
 $default_db_password  = 'drupal';
 
 // Use .env database credential format if provided.
-if (empty($db_user) && !empty($_ENV['MYSQL_USER'])) {
-  $db_user = $_ENV['MYSQL_USER'];
+if (empty($db_user) && !empty(getenv('MYSQL_USER'))) {
+  $db_user = getenv('MYSQL_USER');
 }
 
-if (empty($db_password) && !empty($_ENV['MYSQL_PASSWORD'])) {
-  $db_password = $_ENV['MYSQL_PASSWORD'];
+if (empty($db_password) && !empty(getenv('MYSQL_PASSWORD'))) {
+  $db_password = getenv('MYSQL_PASSWORD');
 }
-if (empty($db_name) && !empty($_ENV['MYSQL_DATABASE'])) {
-  $db_name = $_ENV['MYSQL_DATABASE'];
+if (empty($db_name) && !empty(getenv('MYSQL_DATABASE'))) {
+  $db_name = getenv('MYSQL_DATABASE');
 }
-if (empty($db_host) && !empty($_ENV['MYSQL_HOSTNAME'])) {
-  $db_host = $_ENV['MYSQL_HOSTNAME'];
+if (empty($db_host) && !empty(getenv('MYSQL_HOSTNAME'))) {
+  $db_host = getenv('MYSQL_HOSTNAME');
 }
-if (empty($db_port) && !empty($_ENV['MYSQL_PORT'])) {
-  $db_port = $_ENV['MYSQL_PORT'];
+if (empty($db_port) && !empty(getenv('MYSQL_PORT'))) {
+  $db_port = getenv('MYSQL_PORT');
 }
 
 if (empty($db_user)) {
