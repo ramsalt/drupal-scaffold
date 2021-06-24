@@ -1,7 +1,18 @@
 # For more info about Post deployment scripts in Wodby see:
 # https://wodby.com/docs/1.0/apps/post-deployment-scripts/
 pipeline:
-  # Automatically handles drush cr, updb, cim, ...
+  # This updates the permissions of typically drupal-generatede files which might cause drush cache-rebuild to fail otherwise.
+  - name: "Fix permission on cached files."
+    type: command
+    command: |
+      sudo files_chmod /mnt/files/public/css/ || true;
+      sudo files_chmod /mnt/files/public/js/ || true ;
+      sudo files_chmod /mnt/files/public/languages/ || true ;
+      sudo files_chmod /mnt/files/public/php/ || true;
+      sudo files_chmod /mnt/files/public/translations/ || true ;
+      sudo files_chmod /mnt/files/public/xmlsitemap/ || true;
+
+# Automatically handles drush cr, updb, cim, ...
   - name: Drush Deploy
     type: command
     command: drush deploy
