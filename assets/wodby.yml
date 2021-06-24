@@ -5,12 +5,12 @@ pipeline:
   - name: "Fix permission on cached files."
     type: command
     command: |
-      sudo files_chmod /mnt/files/public/css/ || true;
+      sudo files_chmod /mnt/files/public/css/ || true ;
       sudo files_chmod /mnt/files/public/js/ || true ;
       sudo files_chmod /mnt/files/public/languages/ || true ;
-      sudo files_chmod /mnt/files/public/php/ || true;
+      sudo files_chmod /mnt/files/public/php/ || true ;
       sudo files_chmod /mnt/files/public/translations/ || true ;
-      sudo files_chmod /mnt/files/public/xmlsitemap/ || true;
+      sudo files_chmod /mnt/files/public/xmlsitemap/ || true ;
 
 # Automatically handles drush cr, updb, cim, ...
   - name: Drush Deploy
