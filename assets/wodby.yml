@@ -11,6 +11,8 @@ pipeline:
       sudo files_chmod /mnt/files/public/php/ || true ;
       sudo files_chmod /mnt/files/public/translations/ || true ;
       sudo files_chmod /mnt/files/public/xmlsitemap/ || true ;
+      sudo files_chmod /mnt/files/public/google_tag/ || true ;
+      sudo files_chmod /mnt/files/public/google_analytics/ || true ;
 
 # Automatically handles drush cr, updb, cim, ...
   - name: Drush Deploy
