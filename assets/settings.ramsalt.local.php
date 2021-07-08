@@ -21,6 +21,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
 $config['advagg.settings']['enabled'] = FALSE;
 
 $settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['page'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
 // A default value for non-docker users' private files path.
