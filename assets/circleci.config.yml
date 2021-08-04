@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  ramsalt-ci: ramsalt/ci@volatile
+  ramsalt-ci: ramsalt/ci@1
 
 workflows:
   version: 2
