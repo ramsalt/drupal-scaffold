@@ -2,14 +2,60 @@ version: 2.1
 orbs:
   ramsalt-ci: ramsalt/ci@1
 
+parameters:
+  wodby-application-uuid:
+    #
+    # IMPORTANT: Insert here the Application UUID
+    # (As shown in wodby "Instance -> Settings")
+    #
+    default: ''
+    type: string
+
 workflows:
   version: 2
-  wodby-deploy:
+  # This workflow takes care of both 'develop' and 'master' branch
+  # if the wodby instances are named 'Dev' and 'Live'
+  default-wodby-deployment:
     jobs:
-      -
-        ramsalt-ci/wodby-deploy-simple:
-          name: "Deploy: INSERT NAME HERE instance"
+      - ramsalt-ci/build-drupal-and-deploy-on-wodby:
+          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
           context: [wodby-api, private-packagist]
-          wodby_instance_uuid: '......'
-#        filters:
-#          branches: { only: [ 'develop' ] }
+          filters:
+            branches: { only: [ master, develop ] }
+
+#
+# If you need more deployments you can define them here.
+# A couple of examples are provided, but you can add as many as needed.
+#
+# To enable this workflows simply uncomment the following lines and update the configuration as needed.
+#
+#  custom-wodby-deployments:
+#    jobs:
+#      -
+#        ramsalt-ci/build-drupal-and-deploy-on-wodby:
+#          #
+#          # EXAMPLE: Deploy branch 'preview' to the instance with name "Staging"
+#          #
+#          name: Deploy staging instance
+#          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
+#          wodby_instance_name: 'Staging'
+#          context: [wodby-api, private-packagist]
+#          filters:
+#            branches:
+#              only:
+#                - preview
+#      -
+#        ramsalt-ci/build-drupal-and-deploy-on-wodby:
+#          #
+#          # EXAMPLE: Deploy branches 'feature/foo' and 'feature/bar' to the Instance with name "Feature"
+#          #
+#          name: Deploy feature instance
+#          wodby_instance_name: 'Feature'
+#          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
+#          context: [wodby-api, private-packagist]
+#          filters:
+#            branches:
+#              only:
+#                - feature/foo
+#                - feature/bar
+#
