@@ -14,12 +14,22 @@ pipeline:
       sudo files_chmod /mnt/files/public/google_tag/ || true ;
       sudo files_chmod /mnt/files/public/google_analytics/ || true ;
 
-# Automatically handles drush cr, updb, cim, ...
+  # Automatically handles drush cr, updb, cim, ...
   - name: Drush Deploy
     type: command
     command: drush deploy
     directory: $WODBY_APP_ROOT
-    only_if: '[ -n "$(drush st --fields=bootstrap)" ]'
+    only_if: 'drush version --pipe | grep -Eq '^10\.' && [ -n "$(drush st --fields=bootstrap)" ]'
+  # Fallback for drush 9 version.
+  - name: "Drush deploy (v9)"
+    type: command
+    command: |
+      drush updatedb --no-cache-clear -ny && \
+      drush cache:rebuild -ny && \
+      drush config:import -ny && \
+      drush cache:rebuild -ny
+    directory: $WODBY_APP_ROOT
+    only_if: 'drush version --pipe | grep -Eq '^9\.' && [ -n "$(drush st --fields=bootstrap)" ]'
 
   - name: Configure administrator and disable password login for '*@ramsalt.com' accounts.
     type: command
