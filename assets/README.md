@@ -6,7 +6,7 @@ Insert here a short desctiption of the project, indicating who is the client and
 
 | SITE INFO     |             |
 | ------------- | ----------- |
-| **Site status**        | ðŸ› ï¸ Development / ðŸš€ Launched  |
+| **Site status**        | 🛠 Development / 🚀 Launched  |
 | **Launch date**        | YYYY/MM/DD or mmm YYYY |
 | **Project manager**    | [NAME](mailto:NAME@ramsalt.com) |
 | **Product owner**      | Client name |
@@ -96,14 +96,3 @@ The best practice to consider when deploying is to do your changes on `develop` 
 
 Any miscellaneous non-categorable info you may need to add
 
-
-- - -
-## Credits
-| Ramsalt Team   |             |
-| --------------- | ----------- |
-| **Project Manager**      | NAME <NAME@ramsalt.com> |
-| **Lead Architect**       | NAME <NAME@ramsalt.com> |
-| **Lead Developer**       | NAME <NAME@ramsalt.com> |
-| **Frontend Developer**   | NAME <NAME@ramsalt.com>  |
-| **Backend Developer**    | NAME <NAME@ramsalt.com>  |
-{"mode":"full","isActive":false}
