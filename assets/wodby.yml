@@ -1,8 +1,9 @@
 # For more info about Post deployment scripts in Wodby see:
 # https://wodby.com/docs/1.0/apps/post-deployment-scripts/
 pipeline:
-  # This updates the permissions of typically drupal-generatede files which might cause drush cache-rebuild to fail otherwise.
-  - name: "Fix permission on cached files."
+  # This updates the permissions of typically drupal-generated files which might cause drush cache-rebuild to fail otherwise.
+  -
+    name: "Fix permission on cached files."
     type: command
     command: |
       sudo files_chmod /mnt/files/public/css/ || true ;
@@ -13,15 +14,16 @@ pipeline:
       sudo files_chmod /mnt/files/public/xmlsitemap/ || true ;
       sudo files_chmod /mnt/files/public/google_tag/ || true ;
       sudo files_chmod /mnt/files/public/google_analytics/ || true ;
-
   # Automatically handles drush cr, updb, cim, ...
-  - name: Drush Deploy
+  -
+    name: "Drush Deploy"
     type: command
     command: drush deploy
     directory: $WODBY_APP_ROOT
-    only_if: 'drush version --pipe | grep -Eq '^10\.' && [ -n "$(drush st --fields=bootstrap)" ]'
+    only_if: 'drush version --pipe | grep -Eq "^10\." && [ -n "$(drush st --fields=bootstrap)" ]'
   # Fallback for drush 9 version.
-  - name: "Drush deploy (v9)"
+  -
+    name: "Drush deploy (v9)"
     type: command
     command: |
       drush updatedb --no-cache-clear -ny && \
@@ -29,9 +31,9 @@ pipeline:
       drush config:import -ny && \
       drush cache:rebuild -ny
     directory: $WODBY_APP_ROOT
-    only_if: 'drush version --pipe | grep -Eq '^9\.' && [ -n "$(drush st --fields=bootstrap)" ]'
-
-  - name: Configure administrator and disable password login for '*@ramsalt.com' accounts.
+    only_if: 'drush version --pipe | grep -Eq "^9\." && [ -n "$(drush st --fields=bootstrap)" ]'
+  -
+    name: "Configure administrator and disable password login for '*@ramsalt.com' accounts."
     type: command
     # TODO Remember this: https://www.drupal.org/project/drupal/issues/540008
     command: |
