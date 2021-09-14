@@ -12,6 +12,7 @@
         "drupal-scaffold": {
             "file-mapping": {
                 "[project-root]/wodby.yml": "assets/wodby.yml",
+                "[project-root]/README.md": "assets/README.md",
                 "[project-root]/.circleci/config.yml": {
                     "mode": "replace",
                     "path": "assets/circleci.config.yml",
