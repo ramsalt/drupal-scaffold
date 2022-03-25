@@ -26,20 +26,29 @@ workflows:
 #
 # If you need more deployments you can define them here.
 # A couple of examples are provided, but you can add as many as needed.
+# 
+# You can use the drupal-build-theme job, if you want to build/compile a theme on runtime and you do
+# not have the compiled CSS files in GIT. The job automaticlaly runs `npm install && npm run build`
+# in the specified theme folder.
 #
 # To enable this workflows simply uncomment the following lines and update the configuration as needed.
 #
 #  custom-wodby-deployments:
 #    jobs:
+#      - ramsalt-ci/drupal-build-theme:
+#          theme: 'yourthemename'
 #      -
 #        ramsalt-ci/build-drupal-and-deploy-on-wodby:
 #          #
-#          # EXAMPLE: Deploy branch 'preview' to the instance with name "Staging"
+#          # EXAMPLE: Deploy branch 'preview' to the instance with name "Staging" and
+#          # builds the theme before.
 #          #
 #          name: Deploy staging instance
 #          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
 #          wodby_instance_name: 'Staging'
 #          context: [wodby-api, private-packagist]
+#          requires:
+#            - ramsalt-ci/drupal-build-theme
 #          filters:
 #            branches:
 #              only:
