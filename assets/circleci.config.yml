@@ -40,12 +40,12 @@ workflows:
 #      -
 #        ramsalt-ci/build-drupal-and-deploy-on-wodby:
 #          #
-#          # EXAMPLE: Deploy branch 'preview' to the instance with name "Staging" and
+#          # EXAMPLE: Deploy branch 'preview' to the instance with hostname prefix "staging" and
 #          # builds the theme before.
 #          #
 #          name: Deploy staging instance
 #          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
-#          wodby_instance_name: 'Staging'
+#          wodby_instance_name: 'staging'
 #          context: [wodby-api, private-packagist]
 #          requires:
 #            - ramsalt-ci/drupal-build-theme
@@ -56,10 +56,10 @@ workflows:
 #      -
 #        ramsalt-ci/build-drupal-and-deploy-on-wodby:
 #          #
-#          # EXAMPLE: Deploy branches 'feature/foo' and 'feature/bar' to the Instance with name "Feature"
+#          # EXAMPLE: Deploy branches 'feature/foo' and 'feature/bar' to the Instance with hostname prefix "feature"
 #          #
 #          name: Deploy feature instance
-#          wodby_instance_name: 'Feature'
+#          wodby_instance_name: 'feature'
 #          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
 #          context: [wodby-api, private-packagist]
 #          filters:
