@@ -3,15 +3,15 @@
 $your_email = 'your_username@ramsalt.com';
 
 // Are you using a docker4drupal based setup?
-$is_docker4drupal = TRUE;
+$is_docker4drupal = FALSE;
 
 // Configure the database credentials. Remove these lines if you are providing.
 // the credentials in your root .env file following the .env.example.
-$db_host      = 'mariadb';
-$db_port      = '3306';
-$db_name      = 'drupal';
-$db_user      = 'drupal';
-$db_password  = 'drupal';
+//$db_host      = 'mariadb';
+//$db_port      = '3306';
+//$db_name      = 'drupal';
+//$db_user      = 'drupal';
+//$db_password  = 'drupal';
 
 // Disable caches.
 $config['system.performance']['css']['preprocess'] = FALSE;
