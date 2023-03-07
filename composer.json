@@ -11,6 +11,11 @@
     "extra": {
         "drupal-scaffold": {
             "file-mapping": {
+                "[project-root]/config/sync/.gitkeep": {
+                    "mode": "replace",
+                    "path": "assets/.gitkeep",
+                    "overwrite": false
+                },
                 "[project-root]/wodby.yml": {
                     "mode": "replace",
                     "path": "assets/wodby.yml",
