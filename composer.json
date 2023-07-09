@@ -26,6 +26,11 @@
                     "path": "assets/circleci.config.yml",
                     "overwrite": false
                 },
+                "[project-root]/renovate.json": {
+                    "mode": "replace",
+                    "path": "assets/renovate.json",
+                    "overwrite": false
+                },
                 "[project-root]/.gitignore": {
                     "append": "assets/gitignore-additions",
                     "force-append": true
