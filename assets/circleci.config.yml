@@ -10,6 +10,9 @@ parameters:
     #
     default: ''
     type: string
+  php_version:
+    default: '8.1'
+    type: string
 
 workflows:
   version: 2
@@ -23,10 +26,24 @@ workflows:
           filters:
             branches: { only: [ master, develop ] }
 
+  # This workflow will create necessary changes to Drupal config when Renovatebot creates
+  # a PR for a dependency update.
+  # It will take configuration from the given Wodby instance and commit it back to the
+  # branch that triggered the workflow.
+  config-auto-update:
+    jobs:
+      - ramsalt-ci/drupal-config-auto-update:
+          name: 'Config Update (Renovate)'
+          php_version: '<< pipeline.parameters.php_version >>'
+          wodby_instance_uuid: '' # Usually the Live instance uuid
+          context: [ wodby-api, private-packagist, bitbucket-auth ]
+          filters:
+            branches: { only: /renovate\/.*/ }
+
 #
 # If you need more deployments you can define them here.
 # A couple of examples are provided, but you can add as many as needed.
-# 
+#
 # You can use the drupal-build-theme job, if you want to build/compile a theme on runtime and you do
 # not have the compiled CSS files in GIT. The job automaticlaly runs `npm install && npm run build`
 # in the specified theme folder.

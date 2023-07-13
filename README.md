@@ -9,6 +9,7 @@ This project enables the following features:
 * Provides `wodby.yml` post deployment scripts
 * Enables drupal-patches with an separate `composer.patches.json` file
 * Provides the default circleci deployment configuration used at Ramsalt
+* Provides a default Renovatebot configuration.
 
 
 ## Enabling this project
