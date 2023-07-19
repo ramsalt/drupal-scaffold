@@ -20,9 +20,18 @@ workflows:
   # if the wodby instances are named 'Dev' and 'Live'
   default-wodby-deployment:
     jobs:
+      - ramsalt-ci/drupal-tests:
+          database_from_wodby: true
+          php_version: '<< pipeline.parameters.php_version >>'
+          wodby_application_uuid: "<< pipeline.parameters.wodby-application-uuid >>"
+          context: [ wodby-api, private-packagist ]
+          filters:
+            branches: { only: [ master, develop ] }
       - ramsalt-ci/build-drupal-and-deploy-on-wodby:
           wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
           context: [wodby-api, private-packagist]
+          #requires:
+          #  - ramsalt-ci/drupal-tests
           filters:
             branches: { only: [ master, develop ] }
 
