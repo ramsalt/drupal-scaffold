@@ -1,0 +1,13 @@
+parameters:
+  monolog.channel_handlers:
+    default: ['udp']
+    # Ignore 404 messages.
+    'page not found': ['null']
+    # Ignore access denied messages.
+    'access denied': ['null']
+  monolog.processors: ['message_placeholder', 'current_user', 'request_uri', 'ip', 'referer']
+
+services:
+  monolog.handler.udp:
+    class: Monolog\Handler\SyslogUdpHandler
+    arguments: ['rsyslog']

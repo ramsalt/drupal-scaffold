@@ -35,6 +35,11 @@
                     "append": "assets/gitignore-additions",
                     "force-append": true
                 },
+                "[web-root]/sites/default/monolog.services.yml": {
+                    "mode": "replace",
+                    "path": "assets/monolog.services.yml",
+                    "overwrite": false
+                },
                 "[web-root]/sites/default/settings.php": {
                     "mode": "replace",
                     "path": "assets/settings.php",
