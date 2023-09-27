@@ -24,6 +24,10 @@ $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['page'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 
+// Enable logging with Monolog to dblog.
+// NB: The module monolog and dblog needs to be enabled for this to work.
+$settings['container_yamls'][] = 'sites/default/monolog.dblog.services.yml';
+
 // A default value for non-docker users' private files path.
 if (!$is_docker4drupal) {
   $settings['file_private_path'] = 'sites/default/files/private';

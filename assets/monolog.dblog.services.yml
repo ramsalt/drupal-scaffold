@@ -1,0 +1,5 @@
+parameters:
+  monolog.channel_handlers:
+    default:
+      handlers:
+        - name: 'drupal.dblog'
