@@ -1,4 +1,4 @@
 <?php
 
 # Monolog services
-$settings['container_yamls'][] = __DIR__ . '/monolog.services.yml';
+$settings['container_yamls'][] = __DIR__ . '/monolog.rsyslog.services.yml';

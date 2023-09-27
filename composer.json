@@ -35,9 +35,14 @@
                     "append": "assets/gitignore-additions",
                     "force-append": true
                 },
-                "[web-root]/sites/default/monolog.services.yml": {
+                "[web-root]/sites/default/monolog.rsyslog.services.yml": {
                     "mode": "replace",
-                    "path": "assets/monolog.services.yml",
+                    "path": "assets/monolog.rsyslog.services.yml",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/monolog.dblog.services.yml": {
+                    "mode": "replace",
+                    "path": "assets/monolog.dblog.services.yml",
                     "overwrite": false
                 },
                 "[web-root]/sites/default/settings.php": {
