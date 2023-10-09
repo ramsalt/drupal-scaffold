@@ -6,6 +6,5 @@
     "local>ramsalt/renovate-config:drupal"
   ],
   "dependencyDashboard": true,
-  "prConcurrentLimit": 10,
-  "baseBranches": ["develop"]
+  "prConcurrentLimit": 10
 }
