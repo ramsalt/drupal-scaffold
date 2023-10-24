@@ -1,5 +1,6 @@
 # Ignore Ramsalt media modules
 /web/modules/ramsaltmedia/
+/web/modules/ramsalt/
 
 # Ignore Ramsalt media themes
 /web/themes/ramsaltmedia/
