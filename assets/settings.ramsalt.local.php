@@ -18,10 +18,7 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 $settings['container_yamls'][] = 'sites/default/monolog.dblog.services.yml';
 
 // A default value for non-docker users' private files path.
-if (!$is_docker4drupal) {
-  $settings['file_private_path'] = 'sites/default/files/private';
-}
-
+$settings['file_private_path'] = 'sites/default/files/private';
 
 /*****************************************************************/
 /**                                                             **/
