@@ -2,9 +2,6 @@
 
 $your_email = 'your_username@ramsalt.com';
 
-// Are you using a docker4drupal based setup?
-$is_docker4drupal = FALSE;
-
 // Configure the database credentials. Remove these lines if you are providing.
 // the credentials in your root .env file following the .env.example.
 //$db_host      = 'mariadb';
