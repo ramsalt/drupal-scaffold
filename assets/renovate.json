@@ -1,7 +1,7 @@
 {
   "force": {
     "constraints": {
-      "php": "~8.2.0"
+      "php": "~8.3.0"
     }
   },
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
