@@ -23,6 +23,7 @@ $config['advagg.settings']['enabled'] = FALSE;
 $settings['cache']['bins']['render'] = 'cache.backend.null';
 $settings['cache']['bins']['page'] = 'cache.backend.null';
 $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+$settings['cache']['bins']['discovery'] = 'cache.backend.null';
 
 // Enable logging with Monolog to dblog.
 // NB: The module monolog and dblog needs to be enabled for this to work.
