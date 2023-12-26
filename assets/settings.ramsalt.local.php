@@ -69,7 +69,7 @@ $config['swiftmailer.transport']['transport'] = 'native';
 // }
 
 // Enable update.php access even when not being logged in.
-$update_free_access = TRUE;
+$settings['update_free_access'] = TRUE;
 
 // Set a hash for secure one-time login links, cancel links, form tokens, etc.
 $settings['hash_salt'] = 'some-very-long-random-string-to-be-changed';
