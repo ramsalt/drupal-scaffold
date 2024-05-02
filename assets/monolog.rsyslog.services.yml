@@ -5,7 +5,7 @@ parameters:
     'page not found': ['null']
     # Ignore access denied messages.
     'access denied': ['null']
-  monolog.processors: ['message_placeholder', 'current_user', 'request_uri', 'ip', 'referer']
+  monolog.processors: ['message_placeholder', 'current_user', 'request_uri', 'ip', 'referer', 'filter_backtrace']
 
 services:
   monolog.handler.udp:
