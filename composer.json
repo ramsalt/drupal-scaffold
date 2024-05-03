@@ -26,6 +26,11 @@
                     "path": "assets/circleci.config.yml",
                     "overwrite": false
                 },
+                "[project-root]/.circleci/drupal-env": {
+                    "mode": "replace",
+                    "path": "assets/circleci.drupal-env",
+                    "overwrite": false
+                },
                 "[project-root]/renovate.json": {
                     "mode": "replace",
                     "path": "assets/renovate.json",
