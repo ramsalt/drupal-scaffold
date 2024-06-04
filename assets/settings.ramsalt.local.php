@@ -33,17 +33,6 @@ $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml'
 // Overwrite the site config.
 $config['system.site']['mail'] = $your_email;
 
-// Configure mail modules to not send out mails in local environments.
-// if ($is_docker4drupal) {
-$config['smtp.settings']['smtp_port'] = '1025';
-$config['smtp.settings']['smtp_host'] = 'mailhog';
-$config['smtp.settings']['smtp_from'] = $your_email;
-// }
-// else {
-$config['smtp.settings']['smtp_reroute_address'] = $your_email;
-$config['swiftmailer.transport']['transport'] = 'native';
-// }
-
 // Enable update.php access even when not being logged in.
 $update_free_access = TRUE;
 
