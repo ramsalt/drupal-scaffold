@@ -50,6 +50,9 @@ $update_free_access = TRUE;
 // Set a hash for secure one-time login links, cancel links, form tokens, etc.
 $settings['hash_salt'] = 'some-very-long-random-string-to-be-changed';
 
+// Enable verbose logging.
+$config['system.logging']['error_level'] = 'verbose';
+
 // Do not scan heavily nested frontend related folders.
 $settings['extension_discovery_scan_tests'] = TRUE;
 $settings['file_scan_ignore_directories'] = [
