@@ -14,3 +14,4 @@ node_modules/
 /web/sites/*/services.local.yml
 /web/sites/development.services.yml
 /docker-runtime/
+/drush/*.local.yml
