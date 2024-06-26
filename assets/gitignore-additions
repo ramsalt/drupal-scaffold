@@ -1,3 +1,7 @@
+######################
+# Ramsalt gitignores #
+######################
+
 # Ignore Ramsalt media modules
 /web/modules/ramsaltmedia/
 /web/modules/ramsalt/
@@ -15,3 +19,5 @@ node_modules/
 /web/sites/development.services.yml
 /docker-runtime/
 /drush/*.local.yml
+
+# Please insert other gitignores above the "Ramsalt gitignores" section
