@@ -54,3 +54,18 @@ $settings['file_scan_ignore_directories'] = [
 // Drupal access settings.
 $settings['rebuild_access'] = TRUE;
 $settings['skip_permissions_hardening'] = TRUE;
+
+
+// Set database settings based on environment variables. Used for example
+// for automated tests. When using DDEV the database will be overwritten
+// via the DDEV settings file.
+$databases['default']['default'] = [
+  'database' => getenv('MYSQL_DATABASE'),
+  'username' => getenv('MYSQL_USER'),
+  'password' => getenv('MYSQL_PASSWORD'),
+  'prefix' => '',
+  'host' => getenv('MYSQL_HOSTNAME'),
+  'port' => getenv('MYSQL_PORT'),
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+];
