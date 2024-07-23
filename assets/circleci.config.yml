@@ -16,6 +16,25 @@ parameters:
 
 workflows:
   version: 2
+  # This workflow run jobs to help improve on the quality of the codebase
+  # Will be run on issue and feature branches
+  code-quality-assurance:
+    jobs:
+      - ramsalt-ci/php-code-sniffer:
+          php_version: << pipeline.parameters.php_version >>
+          filters:
+            branches: { only: [/issue\/.*/, /feature\/.*/] }
+      - ramsalt-ci/code-review:
+          php_version: << pipeline.parameters.php_version >>
+          phpstan_level: 5
+          filters:
+            branches: { only: [/issue\/.*/, /feature\/.*/] }
+      - ramsalt-ci/drupal-rector:
+          php_version: << pipeline.parameters.php_version >>
+          target_branch: << pipeline.git.branch >>
+          filters:
+            branches: { only: [/issue\/.*/, /feature\/.*/] }
+
   # This workflow takes care of both 'develop' and 'master' branch
   # if the wodby instances are named 'Dev' and 'Live'
   default-wodby-deployment:
