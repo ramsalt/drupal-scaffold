@@ -13,15 +13,6 @@ parameters:
   php_version:
     default: '8.3'
     type: string
-  qa_branches:
-    type: string
-    description: >
-      Branches to run code quality assurance jobs on.
-    default:
-      - '/bugfix\/.*/'
-      - '/feature\/.*/'
-      - '/hotfix\/.*/'
-      - '/issue\/.*/'
 
 workflows:
   version: 2
@@ -31,18 +22,21 @@ workflows:
     jobs:
       - ramsalt-ci/php-codesniffer:
           php_version: << pipeline.parameters.php_version >>
+          context: [wodby-api, private-packagist]
           filters:
-            branches: { only: << pipeline.parameters.qa_branches >> }
+            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
       - ramsalt-ci/phpstan:
           php_version: << pipeline.parameters.php_version >>
           phpstan_level: 5
+          context: [wodby-api, private-packagist]
           filters:
-            branches: { only: << pipeline.parameters.qa_branches >> }
+            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
       - ramsalt-ci/drupal-rector:
           php_version: << pipeline.parameters.php_version >>
           target_branch: << pipeline.git.branch >>
+          context: [wodby-api, private-packagist, bitbucket-auth]
           filters:
-            branches: { only: << pipeline.parameters.qa_branches >> }
+            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
 
   # This workflow takes care of both 'develop' and 'master' branch
   # if the wodby instances are named 'Dev' and 'Live'
