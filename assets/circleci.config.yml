@@ -29,11 +29,11 @@ workflows:
   # Will be run on issue and feature branches
   code-quality-assurance:
     jobs:
-      - ramsalt-ci/php-code-sniffer:
+      - ramsalt-ci/php-codesniffer:
           php_version: << pipeline.parameters.php_version >>
           filters:
             branches: { only: << pipeline.parameters.qa_branches >> }
-      - ramsalt-ci/code-review:
+      - ramsalt-ci/phpstan:
           php_version: << pipeline.parameters.php_version >>
           phpstan_level: 5
           filters:
