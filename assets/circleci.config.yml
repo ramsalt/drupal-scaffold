@@ -23,7 +23,7 @@ workflows:
       - ramsalt-ci/php-codesniffer:
           php_version: << pipeline.parameters.php_version >>
           pr_target_branch: << pipeline.git.branch >>
-          context: [wodby-api, private-packagist]
+          context: [wodby-api, private-packagist, bitbucket-auth]
           filters:
             branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
       - ramsalt-ci/phpstan:
