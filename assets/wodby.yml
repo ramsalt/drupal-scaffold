@@ -12,7 +12,9 @@ pipeline:
   -
     name: "Drush Deploy"
     type: command
-    command: drush deploy
+    command: |
+      drush cr
+      drush deploy
     directory: $WODBY_APP_ROOT
     only_if: '[ -n "$(drush st --fields=bootstrap)" ]'
   -
