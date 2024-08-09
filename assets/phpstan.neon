@@ -1,0 +1,13 @@
+parameters:
+    # We start with level 5.
+    # See https://phpstan.org/user-guide/rule-levels
+    level: 5
+    # We only care about custom code
+    paths:
+        - web/modules/custom
+        - web/themes/custom
+    # We can ignore current issues using a baseline.
+    # You create that by running phpstan with the parameter --generate-baseline
+    # and uncomment the following lines.
+    # includes:
+    # - phpstan-baseline.neon

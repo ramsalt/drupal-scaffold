@@ -31,6 +31,21 @@
                     "path": "assets/circleci.drupal-env",
                     "overwrite": false
                 },
+                "[project-root]/phpcs.xml.dist": {
+                    "mode": "replace",
+                    "path": "assets/phpcs.xml.dist",
+                    "overwrite": false
+                },
+                "[project-root]/phpstan.neon": {
+                    "mode": "replace",
+                    "path": "assets/phpstan.neon",
+                    "overwrite": false
+                },
+                "[project-root]/rector.php": {
+                    "mode": "replace",
+                    "path": "assets/drupal-rector.php",
+                    "overwrite": false
+                },
                 "[project-root]/renovate.json": {
                     "mode": "replace",
                     "path": "assets/renovate.json",

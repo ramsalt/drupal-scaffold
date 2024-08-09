@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ruleset name="Ramsalt custom ruleset">
+    <description>Rules for PHP CodeSniffer</description>
+
+    <!-- Run checks on files in this directory and below. -->
+    <file>.</file>
+
+    <!-- Run checks only on files with these extensions -->
+    <arg name="extensions" value="php,inc,theme,module" />
+
+    <!-- Ignore warnings -->
+    <arg name="warning-severity" value="0" />
+
+    <!-- Skip DDEV directory -->
+    <exclude-pattern>.ddev/*</exclude-pattern>
+
+    <!-- Skip 3rd party libraries -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+    <!-- Skip Drupal core -->
+    <exclude-pattern>web/core/*</exclude-pattern>
+    <exclude-pattern>web/*.php</exclude-pattern>
+
+    <!-- Skip sites/default -->
+    <exclude-pattern>web/sites/default/*</exclude-pattern>
+
+    <!-- Skip sites/simpletest -->
+    <exclude-pattern>web/sites/simpletest/*</exclude-pattern>
+
+    <!-- Skip code in contrib directories -->
+    <exclude-pattern>web/*/contrib/*</exclude-pattern>
+
+    <!-- Check for cross-version support for PHP 8.1 and higher. -->
+    <config name="testVersion" value="8.1-"/>
+
+    <!-- Run against the PHPCompatibility ruleset -->
+    <rule ref="PHPCompatibility"/>
+
+    <!-- Run against the Symfony Polyfill ruleset -->
+    <rule ref="PHPCompatibilitySymfonyPolyfillPHP80"/>
+
+    <!-- Run against the Drupal ruleset -->
+    <rule ref="Drupal"/>
+</ruleset>
