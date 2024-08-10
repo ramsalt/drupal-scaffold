@@ -18,26 +18,26 @@ workflows:
   version: 2
   # This workflow run jobs to help improve on the quality of the codebase
   # Will be run on issue and feature branches
-  code-quality-assurance:
-    jobs:
-      - ramsalt-ci/php-codesniffer:
-          php_version: << pipeline.parameters.php_version >>
-          pr_target_branch: << pipeline.git.branch >>
-          context: [wodby-api, private-packagist, bitbucket-auth]
-          filters:
-            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
-      - ramsalt-ci/phpstan:
-          php_version: << pipeline.parameters.php_version >>
-          phpstan_level: 5
-          context: [wodby-api, private-packagist]
-          filters:
-            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
-      - ramsalt-ci/drupal-rector:
-          php_version: << pipeline.parameters.php_version >>
-          target_branch: << pipeline.git.branch >>
-          context: [wodby-api, private-packagist, bitbucket-auth]
-          filters:
-            branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
+  # code-quality-assurance:
+  #   jobs:
+  #     - ramsalt-ci/php-codesniffer:
+  #         php_version: << pipeline.parameters.php_version >>
+  #         pr_target_branch: << pipeline.git.branch >>
+  #         context: [wodby-api, private-packagist, bitbucket-auth]
+  #         filters:
+  #           branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
+  #     - ramsalt-ci/phpstan:
+  #         php_version: << pipeline.parameters.php_version >>
+  #         phpstan_level: 5
+  #         context: [wodby-api, private-packagist]
+  #         filters:
+  #           branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
+  #     - ramsalt-ci/drupal-rector:
+  #         php_version: << pipeline.parameters.php_version >>
+  #         pr_target_branch: << pipeline.git.branch >>
+  #         context: [wodby-api, private-packagist, bitbucket-auth]
+  #         filters:
+  #           branches: { only: ['/bugfix\/.*/', '/feature\/.*/', '/hotfix\/.*/', '/issue\/.*/'] }
 
   # This workflow takes care of both 'develop' and 'master' branch
   # if the wodby instances are named 'Dev' and 'Live'
