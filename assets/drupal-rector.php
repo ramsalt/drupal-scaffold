@@ -11,6 +11,7 @@ use DrupalRector\Set\Drupal10SetList;
 use DrupalRector\Set\Drupal8SetList;
 use DrupalRector\Set\Drupal9SetList;
 use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -20,17 +21,17 @@ return static function (RectorConfig $rectorConfig): void {
   // Adjust the set lists to be more granular to your Drupal requirements.
   $rectorConfig->sets([
     Drupal10SetList::DRUPAL_10,
-    SetList::PHP_83,
+    LevelSetList::UP_TO_PHP_83,
   ]);
 
   $drupalFinder = new DrupalFinder();
   $drupalFinder->locateRoot(__DIR__);
   $drupalRoot = $drupalFinder->getDrupalRoot();
   $rectorConfig->autoloadPaths([
-      $drupalRoot . '/core',
-      $drupalRoot . '/modules',
-      $drupalRoot . '/profiles',
-      $drupalRoot . '/themes'
+    $drupalRoot . '/core',
+    $drupalRoot . '/modules',
+    $drupalRoot . '/profiles',
+    $drupalRoot . '/themes'
   ]);
 
   $rectorConfig->skip(['*/upgrade_status/tests/modules/*']);
