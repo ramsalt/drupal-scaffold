@@ -8,11 +8,8 @@ declare(strict_types=1);
 
 use DrupalFinder\DrupalFinder;
 use DrupalRector\Set\Drupal10SetList;
-use DrupalRector\Set\Drupal8SetList;
-use DrupalRector\Set\Drupal9SetList;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
   // Use our own phpstan config.
