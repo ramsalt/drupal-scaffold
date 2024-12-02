@@ -55,6 +55,16 @@
                     "append": "assets/gitignore-additions",
                     "force-append": true
                 },
+                "[web-root]/modules/custom/.gitkeep": {
+                    "mode": "replace",
+                    "path": "assets/.gitkeep",
+                    "overwrite": false
+                },
+                "[web-root]/themes/custom/.gitkeep": {
+                    "mode": "replace",
+                    "path": "assets/.gitkeep",
+                    "overwrite": false
+                },
                 "[web-root]/sites/default/files/translations/.gitkeep": {
                     "mode": "replace",
                     "path": "assets/.gitkeep",
