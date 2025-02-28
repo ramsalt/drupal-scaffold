@@ -8,9 +8,7 @@ parameters:
         - web/themes/custom
     # Exclude node_modules directories
     excludePaths:
-        - */node_modules/*
-        - web/themes/custom/*/node_modules
-        - web/modules/custom/*/node_modules
+        - **/node_modules/*
     # We can ignore current issues using a baseline.
     # You create that by running phpstan with the parameter --generate-baseline
     # and uncomment the following lines.
