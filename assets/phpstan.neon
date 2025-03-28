@@ -12,5 +12,6 @@ parameters:
     # We can ignore current issues using a baseline.
     # You create that by running phpstan with the parameter --generate-baseline
     # and uncomment the following lines.
+    # reportUnmatchedIgnoredErrors: false
     # includes:
     # - phpstan-baseline.neon
