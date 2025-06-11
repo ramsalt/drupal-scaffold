@@ -1,0 +1,9 @@
+######################
+# Ramsalt robots.txt #
+######################
+
+# Block Scrapy user agent
+User-agent: Scrapy
+Crawl-delay: 10
+
+# Please insert other directives above the "Ramsalt robots.txt" section

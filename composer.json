@@ -55,6 +55,10 @@
                     "append": "assets/gitignore-additions",
                     "force-append": true
                 },
+                "[web-root]/robots.txt": {
+                    "append": "assets/robots.txt-additions",
+                    "force-append": true
+                },
                 "[web-root]/modules/custom/.gitkeep": {
                     "mode": "replace",
                     "path": "assets/.gitkeep",
