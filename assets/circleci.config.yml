@@ -67,7 +67,8 @@ workflows:
       - ramsalt-ci/drupal-config-auto-update:
           name: 'Config Update (Renovate)'
           php_version: '<< pipeline.parameters.php_version >>'
-          wodby_instance_uuid: '' # Usually the Live instance uuid
+          wodby_app_uuid: << pipeline.parameters.wodby-application-uuid >>
+          wodby_instance_name: 'live'
           context: [ wodby-api, private-packagist, bitbucket-auth ]
           filters:
             branches: { only: /renovate\/.*/ }
