@@ -18,12 +18,19 @@ pipeline:
     directory: $WODBY_APP_ROOT
     only_if: '[ -n "$(drush st --fields=bootstrap)" ]'
   -
-    name: "Configure administrator and disable password login for '*@ramsalt.com' accounts."
+    name: "Configure administrator (uid 1) and disable its password login."
     type: command
-    # TODO Remember this: https://www.drupal.org/project/drupal/issues/540008
+    # Only uid 1 is locked to SSO-only login (pass set to an invalid hash).
+    # Other @ramsalt.com accounts (PMs, devs) keep working password login that
+    # survives deploys. Targeting uid 1 directly (rather than the email) means
+    # this does not depend on the rename above succeeding first, and never
+    # catches a real person who happens to have an @ramsalt.com address.
+    # --extra=--skip-ssl: some DBs (e.g. MariaDB 10) do not offer TLS, so sqlq
+    # fails with "SSL is required, but the server does not support it" otherwise.
+    # @See https://www.drupal.org/project/drupal/issues/540008
     command: |
-      drush sqlq 'UPDATE users_field_data SET name="Ramsalt Lab", mail="webmaster@ramsalt.com" WHERE uid = 1 LIMIT 1;' ;
-      drush sqlq "UPDATE users_field_data SET pass='#' WHERE mail LIKE '%@ramsalt.com';"
+      drush sqlq --extra=--skip-ssl 'UPDATE users_field_data SET name="Ramsalt Lab", mail="webmaster@ramsalt.com" WHERE uid = 1 LIMIT 1;' ;
+      drush sqlq --extra=--skip-ssl "UPDATE users_field_data SET pass='#' WHERE uid = 1 LIMIT 1;"
     directory: $WODBY_APP_DOCROOT
     only_if: '[ "$WODBY_ENVIRONMENT_TYPE" = "prod" ] && [ -n "$(drush st --fields=bootstrap)" ]'
   # This updates the permissions of typically drupal-generated files which might cause drush cache-rebuild to fail otherwise.
